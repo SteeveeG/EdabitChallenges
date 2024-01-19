@@ -1,3 +1,4 @@
+# Link to Challenge: https://edabit.com/challenge/ehyZvt6AJF4rKFfXT
 def uncensor(sentence="", vowels=""):
     for v in vowels:
         sentence = sentence.replace('*', v, 1)
