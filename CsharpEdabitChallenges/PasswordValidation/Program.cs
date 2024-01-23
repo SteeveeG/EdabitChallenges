@@ -25,6 +25,6 @@ passwords.Add("zZ9'?<>,.");
 
 foreach (var password in passwords)
 {
-    Console.WriteLine("\n"+password);
-    Console.WriteLine(validator.ValidatePassword(password));
+    Console.WriteLine(password);
+    Console.WriteLine(validator.ValidatePassword(password) + "\n");
 }
