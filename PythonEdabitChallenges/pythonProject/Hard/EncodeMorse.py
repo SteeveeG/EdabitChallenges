@@ -11,6 +11,8 @@ char_to_dots = {
     ':': '---...', ',': '--..--', '=': '-...-', '!': '-.-.--', '.': '.-.-.-',
     '-': '-....-', '+': '.-.-.', '"': '.-..-.', '?': '..--..', '/': '-..-.'
 }
+
+
 def encode_morse(sentence):
     morse_code = ""
     index = 0
@@ -20,7 +22,7 @@ def encode_morse(sentence):
         morse_code += char_to_dots[char]
         x = sentence.index(char, index, length)
         index += 1
-        if not x == length -1:
+        if not x == length - 1:
             morse_code += " "
     print(morse_code)
 
@@ -28,6 +30,8 @@ def encode_morse(sentence):
 encode_morse("EDABBIT CHALLENGE")  # . -.. .- -... -... .. -   -.-. .... .- .-.. .-.. . -. --. .
 encode_morse("HELP ME !")  # .... . .-.. .--.   -- .   -.-.--
 encode_morse("CHALLENGE")  # -.-. .... .- .-.. .-.. . -. --. .
-encode_morse("1 APPLE AND 5 CHERRY, 7 SANDWICHES, 2 TABLES, 9 INVITED GUYS ! THAT'S SO COOL...")  # .----   .- .--. .--. .-.. .   .- -. -..   .....   -.-. .... . .-. .-. -.-- --..--   --...   ... .- -. -.. .-- .. -.-. .... . ... --..--   ..---   - .- -... .-.. . ... --..--   ----.   .. -. ...- .. - . -..   --. ..- -.-- ...   -.-.--   - .... .- - .----. ...   ... ---   -.-. --- --- .-.. .-.-.- .-.-.- .-.-.-
+encode_morse(
+    "1 APPLE AND 5 CHERRY, 7 SANDWICHES, 2 TABLES, 9 INVITED GUYS ! THAT'S SO COOL...")  # .----   .- .--. .--. .-.. .   .- -. -..   .....   -.-. .... . .-. .-. -.-- --..--   --...   ... .- -. -.. .-- .. -.-. .... . ... --..--   ..---   - .- -... .-.. . ... --..--   ----.   .. -. ...- .. - . -..   --. ..- -.-- ...   -.-.--   - .... .- - .----. ...   ... ---   -.-. --- --- .-.. .-.-.- .-.-.- .-.-.-
 encode_morse("did you got my mail ?")  # -.. .. -..   -.-- --- ..-   --. --- -   -- -.--   -- .- .. .-..   ..--..
-encode_morse("TWO THInGS TO KNOW : i FORGeT THeM :C")  # - .-- ---   - .... .. -. --. ...   - ---   -.- -. --- .--   ---...   ..   ..-. --- .-. --. . -   - .... . --   ---... -.-.
+encode_morse(
+    "TWO THInGS TO KNOW : i FORGeT THeM :C")  # - .-- ---   - .... .. -. --. ...   - ---   -.- -. --- .--   ---...   ..   ..-. --- .-. --. . -   - .... . --   ---... -.-.
