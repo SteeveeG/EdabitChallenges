@@ -1,7 +1,6 @@
 ﻿using DartsSolving;
 //Link To Challenge: https://edabit.com/challenge/5K28RRq4RZQB7r9tj
 
-
 Console.WriteLine("DartsSolver:");
 var dartSolver = new DartsSolver();
 var results = new List<string[]>();
@@ -23,5 +22,3 @@ foreach (var result in results)
     Console.WriteLine("");
 }
 Console.ReadKey();
-
-;
