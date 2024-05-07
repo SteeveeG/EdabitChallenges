@@ -16,33 +16,25 @@ public class Validator
 
     public string ValidatePassword(string password)
     {
-        switch (password.Length)
+        return password.Length switch
         {
-            case > 24:
-                return "too long";
-            case < 6:
-                return "too short";
-        }
-
-        switch (password)
-        { 
-            case { } s when upperCaseRegex.IsMatch(password):
-                return "Missing Numbers and lowercase";
-             case { } s when lowerCaseRegex.IsMatch(password):
-                return "Missing Numbers and uppercase";
-            case { } s when alphabeticRegex.IsMatch(password):
-                return "Missing Numbers";
-            case { } s when numbersRegex.IsMatch(password):
-                return "Missing lowercase and uppercase";
-            case { } s when numbersLowerCaseRegex.IsMatch(password):
-                return "Missing uppercase";
-            case { } s when numbersUpperCaseRegex.IsMatch(password):
-                return "Missing lowercase";
-            case { } s when specialCharactersRegex.IsMatch(password):
-                return "Special Character not Supported";
-
-        }
-        return password.Where((t, i) => t == password[(i + 1) % password.Length] &&
-                                        t == password[(i + 2) % password.Length]).Any() ? "Maximum of 2 repeated characters" : "OK !";
+            > 24 => "too long",
+            < 6 => "too short",
+            _ => password switch
+            {
+                { } s when upperCaseRegex.IsMatch(password) => "Missing Numbers and lowercase",
+                { } s when lowerCaseRegex.IsMatch(password) => "Missing Numbers and uppercase",
+                { } s when alphabeticRegex.IsMatch(password) => "Missing Numbers",
+                { } s when numbersRegex.IsMatch(password) => "Missing lowercase and uppercase",
+                { } s when numbersLowerCaseRegex.IsMatch(password) => "Missing uppercase",
+                { } s when numbersUpperCaseRegex.IsMatch(password) => "Missing lowercase",
+                { } s when specialCharactersRegex.IsMatch(password) => "Special Character not Supported",
+                _ => password.Where((t, i) => t == password[(i + 1) % password.Length] &&
+                                              t == password[(i + 2) % password.Length])
+                    .Any()
+                    ? "Maximum of 2 repeated characters"
+                    : "OK !"
+            }
+        };
     }
 }
